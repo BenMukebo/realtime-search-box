@@ -1,0 +1,2 @@
+module SearchArticlesHelper
+end
