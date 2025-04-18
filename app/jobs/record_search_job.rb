@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RecordSearchJob < ApplicationJob
   queue_as :default
 
@@ -7,10 +9,10 @@ class RecordSearchJob < ApplicationJob
 
     if last_search && query.start_with?(last_search.query) && query.length > last_search.query.length
       # If User is typing forward (adding characters)
-      last_search.update(query: query)
+      last_search.update(query:)
     elsif last_search.nil? || !last_search.query.start_with?(query)
       # New burst (not a deletion or prefix), create a new record
-      SearchArticle.create(query: query, user: user, ip_address: ip_address)
+      SearchArticle.create(query:, user:, ip_address:)
     end
     # If the user is deleting (query is shorter or not an extension), do nothing
   end
