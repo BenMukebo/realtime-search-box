@@ -1,0 +1,117 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/* Header and Search Styles */
+.header {
+  width: 100%;
+  padding: 2rem 0;
+}
+
+.header-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.header-inner h1 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2d3748;
+}
+
+.search-bar-container {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: border-color 0.15s ease-in-out;
+}
+
+.search-bar-with-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 0.75rem center;
+  background-size: 1.25rem;
+}
+
+.search-bar:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+}
+
+/* Articles Container */
+.articles-container {
+  max-width: 992px;
+  margin: 2rem auto 0;
+}
+
+.heading-articles {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #1f2937;
+}
+
+/* Search Analytics Styles */
+.search-data {
+  margin-bottom: 2rem;
+}
+
+.heading-search {
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.heading-article {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.col {
+  flex: 1;
+}
+
+.col-1 {
+  font-weight: 500;
+}
+
+.col-2 {
+  text-align: right;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+/* Search Results Styling */
+.spinner-container {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
