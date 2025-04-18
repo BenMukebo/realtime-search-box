@@ -1,0 +1,75 @@
+<div class="mb-16">
+  <!-- Presentation Section -->
+  <section class="relative py-16 mb-12 text-center overflow-hidden bg-gradient-to-br from-blue-50 via-yellow-50 to-red-50 rounded-3xl shadow-lg">
+    <div class="absolute inset-0 pointer-events-none">
+      <svg class="absolute left-1/2 top-0 transform -translate-x-1/2" width="1200" height="400" fill="none" viewBox="0 0 1200 400">
+        <circle cx="200" cy="200" r="200" fill="#4285F4" fill-opacity="0.08"/>
+        <circle cx="1000" cy="100" r="120" fill="#FBBC05" fill-opacity="0.12"/>
+        <circle cx="900" cy="350" r="80" fill="#34A853" fill-opacity="0.10"/>
+        <circle cx="300" cy="350" r="100" fill="#EA4335" fill-opacity="0.09"/>
+      </svg>
+    </div>
+    <h1 class="text-6xl font-extrabold mb-4 tracking-tight select-none">
+      <span class="text-blue-500">G</span>
+      <span class="text-red-500">o</span>
+      <span class="text-yellow-500">o</span>
+      <span class="text-blue-500">g</span>
+      <span class="text-green-500">l</span>
+      <span class="text-red-500">e</span>
+      <span class="text-gray-800">Search</span>
+    </h1>
+    <p class="max-w-2xl mx-auto text-2xl text-gray-700 font-light mb-6">
+      Explore our collection of articles with real-time search and colorful insights.
+    </p>
+    <div class="flex justify-center space-x-2 mb-2">
+      <span class="inline-block w-3 h-3 rounded-full bg-blue-500"></span>
+      <span class="inline-block w-3 h-3 rounded-full bg-red-500"></span>
+      <span class="inline-block w-3 h-3 rounded-full bg-yellow-500"></span>
+      <span class="inline-block w-3 h-3 rounded-full bg-green-500"></span>
+    </div>
+  </section>
+
+  <!-- Search Box Article Section -->
+  <section class="header">
+    <div class="header-inner">
+      <%= form_with(url: articles_path, method: :get, data: { controller: "search-form", turbo_frame: "articles", turbo_action: "advance" }) do |form| %>
+        <div class="w-full relative">
+          <div class="flex items-center border border-gray-300 rounded-full bg-white shadow-sm px-5 py-3 hover:shadow-md focus-within:shadow-md transition">
+            <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <%= form.text_field :query, value: params[:query], autocomplete: :off, data: { action: "input->search-form#search", search_form_target: "input" }, class: "w-full ml-3 bg-transparent focus:outline-none text-lg", placeholder: "Search articles..." %>
+            <span data-search-form-target="spinner" class="ml-2">
+              <svg class="animate-spin h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            </span>
+          </div>
+        </div>
+        <div class="flex justify-center mt-6 space-x-2">
+          <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow">Google Search</button>
+          <button type="button" class="bg-yellow-400 hover:bg-yellow-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow">I'm Feeling Lucky</button>
+        </div>
+       <div class="trending-categories mt-5 text-center">
+          <p class="text-gray-700 text-sm font-medium mb-3">Search categories:</p>
+          <div class="flex flex-wrap justify-center gap-3">
+            <span class="bg-purple-50 text-purple-700 px-4 py-1.5 rounded-md text-xs hover:bg-purple-100 transition cursor-pointer border border-purple-200">Health & Wellness</span>
+            <span class="bg-teal-50 text-teal-700 px-4 py-1.5 rounded-md text-xs hover:bg-teal-100 transition cursor-pointer border border-teal-200">Artificial Intelligence</span>
+            <span class="bg-amber-50 text-amber-700 px-4 py-1.5 rounded-md text-xs hover:bg-amber-100 transition cursor-pointer border border-amber-200">Remote Work</span>
+            <span class="bg-rose-50 text-rose-700 px-4 py-1.5 rounded-md text-xs hover:bg-rose-100 transition cursor-pointer border border-rose-200">Climate Action</span>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    
+    <div class="articles-container">
+      <h2 class="heading-articles text-2xl font-bold text-gray-800 mb-4">List of available articles</h2>
+      <div class="articles">
+        <%= turbo_frame_tag "articles" do %>
+          <%= render "articles", articles: @articles %>
+        <% end %>
+      </div>
+    </div>
+  </header>
+</div>
