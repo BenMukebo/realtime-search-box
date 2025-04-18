@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Article < ApplicationRecord
   validates :title, presence: true
   validates :content, presence: true
@@ -7,6 +9,6 @@ class Article < ApplicationRecord
 
   def self.search_articles(query, user, ip_address)
     user ||= User.find_or_create_by_ip(ip_address)
-    SearchArticle.create(query: query, user: user, ip_address: ip_address)
+    SearchArticle.create(query:, user:, ip_address:)
   end
 end

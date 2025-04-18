@@ -1,20 +1,24 @@
+# frozen_string_literal: true
+
 class ArticlesController < ApplicationController
   def index
     @search = query_params[:query]
 
-    if @search.present?
-      @articles = Article.search_by_title(@search).recent.limit(10)
+    @articles = if @search.present?
+                  Article.search_by_title(@search).recent.limit(10)
 
-      # Record the search when a non-empty query is processed
-      # record_search(@search)
-      # No direct recording here; handled by JS and SearchArticlesController#record
-    else
-      @articles = Article.recent.limit(10)
-    end
+                # Record the search when a non-empty query is processed
+                # record_search(@search)
+                # No direct recording here; handled by JS and SearchArticlesController#record
+                else
+                  Article.recent.limit(10)
+                end
 
     respond_to do |format|
       format.html
-      format.turbo_stream { render turbo_stream: turbo_stream.update("articles", partial: "articles", locals: { articles: @articles }) }
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.update('articles', partial: 'articles', locals: { articles: @articles })
+      end
     end
   end
 
