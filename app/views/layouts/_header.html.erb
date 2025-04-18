@@ -1,0 +1,20 @@
+<header class="fixed top-0 left-0 w-full bg-white shadow z-40">
+  <div class="container mx-auto flex items-center justify-between px-4 py-3">
+    <%= link_to root_path, class: "flex items-center space-x-2" do %>
+      <span class="text-3xl font-bold tracking-tight select-none">
+        <span class="text-blue-500">G</span>
+        <span class="text-red-500">o</span>
+        <span class="text-yellow-500">o</span>
+        <span class="text-blue-500">g</span>
+        <span class="text-green-500">l</span>
+        <span class="text-red-500">e</span>
+        <span class="text-gray-700">Search</span>
+      </span>
+    <% end %>
+    <nav class="space-x-6">
+      <%= link_to "Search", root_path, class: "text-gray-600 hover:text-blue-600 font-medium" %>
+      <%= link_to "Analytics", search_articles_path, class: "text-gray-600 hover:text-blue-600 font-medium" %>
+    </nav>
+  </div>
+</header>
+<div class="h-16"></div>

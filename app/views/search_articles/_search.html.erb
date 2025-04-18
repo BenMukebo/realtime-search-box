@@ -1,0 +1,12 @@
+<li class="flex items-center justify-between px-4 py-3 hover:bg-gray-50">
+  <div class="flex flex-col">
+    <span class="text-blue-700 font-medium"><%= search.query %></span>
+    <div class="flex items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-2.5 w-2.5 text-gray-500 mr-[2px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <span class="text-xs text-gray-500"><%= time_ago_in_words(search.created_at) %> ago</span>
+    </div>
+  </div>
+  <a href="<%= articles_path(query: search.query) %>" class="text-sm text-indigo-600 hover:text-indigo-800">Search again</a>
+</li>
