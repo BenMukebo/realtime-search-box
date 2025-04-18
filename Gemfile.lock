@@ -253,6 +253,9 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    shoulda-context (3.0.0.rc1)
+    shoulda-matchers (6.4.0)
+      activesupport (>= 5.2.0)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -305,6 +308,8 @@ DEPENDENCIES
   rspec-rails
   rubocop
   selenium-webdriver
+  shoulda-context (~> 3.0.0.rc1)
+  shoulda-matchers (~> 6.0)
   sprockets-rails
   stimulus-rails
   tailwindcss-rails

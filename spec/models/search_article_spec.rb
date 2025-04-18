@@ -19,6 +19,9 @@ RSpec.describe SearchArticle, type: :model do
     end
   end
 
+  describe 'associations' do
+    it { is_expected.to belong_to(:user) }
+  end
 
   describe '.completed_searches_for_user' do
     it 'returns the 10 most recent searches for a user' do

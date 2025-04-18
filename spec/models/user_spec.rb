@@ -36,4 +36,8 @@ RSpec.describe User, type: :model do
       end.to change { User.count }.by(1)
     end
   end
+
+  describe 'test user associations' do
+    it { should have_many(:search_articles) }
+  end
 end
