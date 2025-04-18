@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file should ensure the existence of records required to run the application in every environment (production,
 # development, test). The code here should be idempotent so that it can be executed at any point in every environment.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
@@ -21,7 +23,8 @@ articles = [
   { title: 'The Benefits of Meditation', content: 'Meditation can reduce stress and improve focus...' },
   { title: 'The Impact of Climate Change', content: 'Climate change is affecting weather patterns globally...' },
   { title: 'The Evolution of Web Development', content: 'Web development has come a long way since the 90s...' },
-  { title: 'The Importance of Cybersecurity', content: 'With the rise of digital threats, cybersecurity is crucial...' },
+  { title: 'The Importance of Cybersecurity',
+    content: 'With the rise of digital threats, cybersecurity is crucial...' },
   { title: 'The Future of Renewable Energy', content: 'Renewable energy sources are becoming more viable...' },
   { title: 'The Psychology of Color', content: 'Colors can influence mood and behavior...' }
 ]

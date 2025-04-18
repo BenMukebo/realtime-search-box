@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class SearchArticlesController < ApplicationController
   def index
     @user = current_user
-    if @user
-      @user_searches = SearchArticle.completed_searches_for_user(@user.id)
-    end
+    return unless @user
+
+    @user_searches = SearchArticle.completed_searches_for_user(@user.id)
   end
 
   def record
