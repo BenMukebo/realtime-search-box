@@ -1,15 +1,15 @@
 class SearchArticlesController < ApplicationController
   def index
     @user = current_user
-
     if @user
-      @user_searches = SearchArticle.get_completed_searches(@user.id)
+      @user_searches = SearchArticle.completed_searches_for_user(@user.id)
     end
   end
 
-  private
-
-  def current_user
-    @current_user ||= User.find_or_create_by_ip(request.remote_ip)
+  def record
+    query = params[:query]
+    user = current_user
+    RecordSearchJob.perform_later(query, user.id, request.remote_ip) if query.present?
+    head :ok
   end
 end
