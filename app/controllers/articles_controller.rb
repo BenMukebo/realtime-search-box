@@ -4,7 +4,10 @@ class ArticlesController < ApplicationController
 
     if @search.present?
       @articles = Article.search_by_title(@search).recent.limit(10)
-      record_search(@search)
+
+      # Record the search when a non-empty query is processed
+      # record_search(@search)
+      # No direct recording here; handled by JS and SearchArticlesController#record
     else
       @articles = Article.recent.limit(10)
     end
@@ -19,10 +22,6 @@ class ArticlesController < ApplicationController
 
   def record_search(query)
     Article.search_articles(query, current_user, request.remote_ip) if request.format.html?
-  end
-
-  def current_user
-    @current_user ||= User.find_or_create_by_ip(request.remote_ip)
   end
 
   def query_params
