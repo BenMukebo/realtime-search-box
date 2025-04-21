@@ -34,10 +34,10 @@ if Rails.env.development? || Rails.env.test?
   # 3.times do |i|
   #   User.create(user_name: "User#{i}", ip_address: "192.168.1.#{i + 1}")
   # end
+end
 
-  # Create articles
-  Article.destroy_all
-  articles.each do |article|
-    Article.create(title: article[:title], content: article[:content])
-  end
+# Create articles
+Article.destroy_all
+articles.each do |article|
+  Article.create(title: article[:title], content: article[:content])
 end
