@@ -5,7 +5,18 @@ This project demonstrates how to log, analyze, and visualize user search queries
 
 ---
 
+## 🌐 Live Demo
+
+[https://mysite-xv67.onrender.com](https://mysite-xv67.onrender.com)
+
+I've deployed this app to Render using their official Rails 8 guide:  
+[Deploy a Rails 8 App on Render Guide](https://render.com/docs/deploy-rails-8)
+
+---
+
 ![Screenshot](public/image.png)
+
+---
 
 ## 🚀 Features
 
@@ -52,10 +63,10 @@ This project demonstrates how to log, analyze, and visualize user search queries
   - Partials for articles and search history.
   
 - **Routes**
-  - `/` — Homepage, main search interface (`ArticlesController#index`)
-  - `/articles` — Article listing and search (GET)
-  - `/search_articles` — Analytics dashboard (GET)
-  - `/search_articles/record` — Endpoint for logging search queries (POST)
+  - `/` Homepage, main search interface (`ArticlesController#index`)
+  - `/articles` Article listing and search (GET)
+  - `/search_articles` Analytics dashboard (GET)
+  - `/search_articles/record` Endpoint for logging search queries (POST)
 ---
 
 ## ✨ How It Works
